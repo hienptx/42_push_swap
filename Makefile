@@ -6,7 +6,7 @@
 #    By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 15:52:00 by hipham            #+#    #+#              #
-#    Updated: 2024/05/27 20:18:43 by hipham           ###   ########.fr        #
+#    Updated: 2024/05/29 19:49:12 by hipham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ PSW_INCL = ./includes
 # Compiler
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_INCL) -I$(PRINTF_INCL) -I$(PSW_INCL)
+# LEAKS = -L../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next -I ../LeakSanitize
 
 # c files
 SRCS = push_swap.c arg_handling.c
@@ -61,5 +62,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_PATH) fclean
+	make -C $(PRINTF_PATH) fclean
 
 re: fclean all
