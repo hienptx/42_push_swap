@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:32:47 by hipham            #+#    #+#             */
-/*   Updated: 2024/05/22 15:36:29 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/03 16:08:33 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char				*ft_strncpy(char *dest, char *src, unsigned int n);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t len);
-int					ft_atoi(const char *str);
+long int			ft_atoi(const char *str);
 double				ft_atof(char *str);
 
 void				*ft_calloc(size_t count, size_t size);

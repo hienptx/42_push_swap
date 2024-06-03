@@ -6,17 +6,17 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:03:30 by hipham            #+#    #+#             */
-/*   Updated: 2023/10/24 15:55:39 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/03 16:09:34 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long int	ft_atoi(const char *str)
 {
 	int	i;
 	int	neopo;
-	int	output;
+	long int	output;
 
 	i = 0;
 	neopo = 1;

@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:28:58 by hipham            #+#    #+#             */
-/*   Updated: 2024/05/29 19:50:05 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/03 21:26:33 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ typedef struct s_stack_b
 }			t_stack_b;
 
 int			arg_handling(int ac, char **ag);
-// t_list		make_list(int ac, char **s);
+void		make_list(int ac, char **ag);
+
+int 		check_validation(long int num);
+void		ft_freelst(t_list *list);
+void		err_message(int n);
+void		handling_invalid_input(char **s, t_list *list);
 
 #endif

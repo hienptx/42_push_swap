@@ -6,7 +6,7 @@
 #    By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 15:52:00 by hipham            #+#    #+#              #
-#    Updated: 2024/05/29 19:49:12 by hipham           ###   ########.fr        #
+#    Updated: 2024/06/03 20:46:16 by hipham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_INCL) -I$(PRINTF_INCL) -I$(PSW_INCL)
 # LEAKS = -L../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next -I ../LeakSanitize
 
 # c files
-SRCS = push_swap.c arg_handling.c
+SRCS = push_swap.c arg_handling.c make_list.c
 
 # Dependencies
 LIBFT = $(LIBFT_PATH)/libft.a
