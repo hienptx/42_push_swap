@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:35:28 by hipham            #+#    #+#             */
-/*   Updated: 2024/05/22 15:15:27 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/04 20:14:08 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ double	ft_atof(char *str)
 	i = 0;
 	neopo = 1;
 	output = 0;
-	
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '-' || str[i] == '+')

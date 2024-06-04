@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:03:30 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/03 16:09:34 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/04 20:14:16 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	neopo;
+	int			i;
+	int			neopo;
 	long int	output;
 
 	i = 0;

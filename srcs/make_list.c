@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:12 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/03 22:17:19 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/04 20:21:42 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	print_list(t_list *list)
 	tmp = list;
 	while (tmp != NULL)
 	{
-		ft_printf("%d ", *(long int *)tmp->content);
+		ft_printf("%d\n", *(long int *)tmp->content);
 		tmp = tmp->next;
 	}
 }
@@ -64,61 +64,51 @@ t_list	*append_to_lst(t_list *list, long int nbr)
 	return (list);
 }
 
-int	num_count(char *s)
+t_list	*make_list(int ac, char **ag, t_list *list)
 {
-	int	count;
+	int		i;
+	char	**s;
+	char	**tmp;
 
-	count = 0;
-	while (*s != '\0')
-	{
-		while (*s != '\0' && ft_isspace(*s))
-			s++;
-		while (*s != '\0' && (*s == '-' || *s == '+'))
-			s++;
-		if (*s != '\0' && ft_isdigit(*s))
-		{
-			while (*s != '\0' && ft_isdigit(*s))
-				s++;
-			count++;
-		}
-	}
-	return (count);
-}
-
-void	make_list(int ac, char **ag)
-{
-	int			i;
-	long int	num;
-	char		**s;
-	t_list		*list;
-
-	list = NULL;
-    s = NULL;
+	s = NULL;
 	i = 0;
 	while (++i < ac)
 	{
-		ft_printf("number of int = %i\n", num_count(ag[i]));
 		if (!ft_strchr(ag[i], ' '))
-		{
-			num = ft_atoi(ag[i]);
-			if (check_validation(num))
-				list = append_to_lst(list, num);
-			else
-				handling_invalid_input(NULL, list);
-		}
+			list = check_and_add(ft_atoi(ag[i]), list, s);
 		else
 		{
-			s = ft_split(ag[i], ' '); // TODO free s after split
-			while (*s != NULL)
-			{
-				num = ft_atoi(*s);
-				if (check_validation(num))
-					list = append_to_lst(list, num);
-				else
-					handling_invalid_input(s, list);
-				s++;
-			}
+			s = ft_split(ag[i], ' ');
+			tmp = s;
+			if (s == NULL)
+				err_message(-1);
+			while (*s++ != NULL)
+				list = check_and_add(ft_atoi(*s), list, s);
+			ft_free(tmp);
 		}
 	}
-	print_list(list);
+	if (!check_duplicates(list))
+		handling_invalid_input(NULL, list);
+	return (list);
 }
+
+// int	num_count(char *s)
+// {
+// 	int	count;
+
+// 	count = 0;
+// 	while (*s != '\0')
+// 	{
+// 		while (*s != '\0' && ft_isspace(*s))
+// 			s++;
+// 		while (*s != '\0' && (*s == '-' || *s == '+'))
+// 			s++;
+// 		if (*s != '\0' && ft_isdigit(*s))
+// 		{
+// 			while (*s != '\0' && ft_isdigit(*s))
+// 				s++;
+// 			count++;
+// 		}
+// 	}
+// 	return (count);
+// }
