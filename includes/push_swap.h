@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:28:58 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/05 16:03:49 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/05 21:07:33 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,12 @@ void		print_list(i_list *list);
 void		ft_freelst(i_list *list);
 void		err_message(int n);
 int			list_size(i_list *list);
+void		lst_delone(i_list *lst, void (*del)(void *));
+void		del(void *data);
 
 void		swap_int(int *val1, int *val2);
 void		swap_a(i_list *list);
 int			compare(int a, int b);
+void		rotate_a(i_list **list);
 
 #endif

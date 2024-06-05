@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:20 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/05 20:20:18 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/05 21:07:07 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,14 @@ void	swap_b(i_list *list)
     print_list(list);
 }
 
-// void	push_a
+void	rotate_a(i_list **list)
+{
+	i_list	*first;
+
+	first = *list;
+	*list = append_to_lst(*list, *(long int*)first->a);
+	*list = first->next;
+	lst_delone(first, del);
+    ft_printf("After pa = \n");
+    print_list(*list);
+}
