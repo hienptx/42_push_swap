@@ -6,21 +6,25 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:16 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/04 20:42:52 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/05 20:21:23 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	err_message(int n)
+i_list *sort_list(i_list *list)
 {
-	if (n == 0)
-		ft_printf("Error: Missing Arguments\n");
-	if (n == 1)
-		ft_printf("Error: Invalid Arguments\n");
-	if (n == -1)
-		ft_printf("Error: Malloc failed");
-	exit(EXIT_FAILURE);
+	int size;
+
+	size = list_size(list);
+	if (size == 1)
+		return (list);
+	if (size == 2)
+	{
+		if (compare(*(int *)list->a, *(int *)list->next->a))
+			swap_a(list);
+	}
+	return(list);
 }
 
 int	arg_handling(int ac, char **ag)
@@ -43,18 +47,21 @@ int	arg_handling(int ac, char **ag)
 
 int	main(int ac, char **ag)
 {
-	t_list	*list;
+	i_list	*list_a;
+	i_list	*list_b;
 
-	list = NULL;
+	list_a = NULL;
+	list_b = NULL;
 	if (ac < 2)
 		err_message(0);
 	if (arg_handling(ac, ag) == 0)
 		err_message(1);
 	else
-		list = make_list(ac, ag, list);
+		list_a = make_list(ac, ag, list_a);
 	ft_printf("Before swap = \n");
-	print_list(list);
-	swap_a(list);
-	ft_freelst(list);
+	print_list(list_a);
+	sort_list(list_a);
+	ft_freelst(list_a);
+	ft_freelst(list_b);
 	exit(EXIT_SUCCESS);
 }

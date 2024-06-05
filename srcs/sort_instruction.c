@@ -6,27 +6,38 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:20 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/04 20:44:21 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/05 20:20:18 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(int *val1, int *val2)
+// sa (swap a): Swap the first 2 elements at the top of stack a. 
+// Do nothing if there is only one or no elements.
+void	swap_a(i_list *list)
 {
-	int	tmp;
-
-	tmp = *val1;
-	*val1 = *val2;
-	*val2 = tmp;
-}
-
-void	swap_a(t_list *list)
-{
-	t_list	*tmp;
+	i_list	*tmp;
 
     tmp = list;
-	ft_swap((int *)tmp->content, (int *)tmp->next->content);
-    ft_printf("After swap = \n");
+	if (list_size(tmp) < 2)
+		;
+	else
+		swap_int((int *)tmp->a, (int *)tmp->next->a);
+    ft_printf("After sa = \n");
     print_list(list);
 }
+
+void	swap_b(i_list *list)
+{
+	i_list	*tmp;
+
+    tmp = list;
+	if (list_size(tmp) < 2)
+		;
+	else
+		swap_int((int *)tmp->b, (int *)tmp->next->b);
+    ft_printf("After sb = \n");
+    print_list(list);
+}
+
+// void	push_a

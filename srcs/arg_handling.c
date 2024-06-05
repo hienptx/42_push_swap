@@ -6,13 +6,13 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:09 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/04 20:13:31 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:36:49 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	handling_invalid_input(char **s, t_list *list)
+void	handling_invalid_input(char **s, i_list *list)
 {
 	if (s != NULL)
 		ft_free(s);
@@ -21,10 +21,10 @@ void	handling_invalid_input(char **s, t_list *list)
 	err_message(1);
 }
 
-int	check_duplicates(t_list *list)
+int	check_duplicates(i_list *list)
 {
-	t_list	*tmp;
-	t_list	*curr;
+	i_list	*tmp;
+	i_list	*curr;
 
 	tmp = list;
 	while (tmp != NULL)
@@ -32,7 +32,7 @@ int	check_duplicates(t_list *list)
 		curr = tmp->next;
 		while (curr != NULL)
 		{
-			if (*(long *)tmp->content == *(long *)curr->content)
+			if (*(long *)tmp->a == *(long *)curr->a)
 				return (0);
 			curr = curr->next;
 		}
@@ -41,7 +41,7 @@ int	check_duplicates(t_list *list)
 	return (1);
 }
 
-t_list	*check_and_add(long int num, t_list *list, char **s)
+i_list	*check_and_add(long int num, i_list *list, char **s)
 {
 	int	valid;
 

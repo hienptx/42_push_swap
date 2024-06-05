@@ -6,54 +6,29 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:12 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/04 20:21:42 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:45:25 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_freelst(t_list *list)
+i_list	*append_to_lst(i_list *list, long int nbr)
 {
-	t_list	*tmp;
-
-	while (list != NULL)
-	{
-		tmp = list;
-		list = list->next;
-		free(tmp->content);
-		free(tmp);
-	}
-}
-
-void	print_list(t_list *list)
-{
-	t_list	*tmp;
-
-	tmp = list;
-	while (tmp != NULL)
-	{
-		ft_printf("%d\n", *(long int *)tmp->content);
-		tmp = tmp->next;
-	}
-}
-
-t_list	*append_to_lst(t_list *list, long int nbr)
-{
-	t_list		*newnode;
-	t_list		*tmp;
+	i_list		*newnode;
+	i_list		*tmp;
 	long int	*n;
 
 	n = malloc(sizeof(long int));
 	if (n == NULL)
 		return (NULL);
 	*n = nbr;
-	newnode = malloc(sizeof(t_list));
+	newnode = malloc(sizeof(i_list));
 	if (newnode == NULL)
 	{
 		free(n);
 		return (NULL);
 	}
-	newnode->content = n;
+	newnode->a = n;
 	newnode->next = NULL;
 	if (list == NULL)
 		return (newnode);
@@ -64,7 +39,7 @@ t_list	*append_to_lst(t_list *list, long int nbr)
 	return (list);
 }
 
-t_list	*make_list(int ac, char **ag, t_list *list)
+i_list	*make_list(int ac, char **ag, i_list *list)
 {
 	int		i;
 	char	**s;
