@@ -6,11 +6,31 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:12 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/05 15:45:25 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/06 21:17:14 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+i_list	*list_new(void *val)
+{
+	i_list	*firstnode;
+
+	firstnode = malloc(sizeof(i_list));
+	if (firstnode == NULL)
+		return (NULL);
+	firstnode->a = val;
+	firstnode->next = NULL;
+	return (firstnode);
+}
+
+void	list_add_front(i_list **lst, i_list *new)
+{
+	if (new == NULL)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
 
 i_list	*append_to_lst(i_list *list, long int nbr)
 {

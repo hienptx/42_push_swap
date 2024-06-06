@@ -6,15 +6,15 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:05:43 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/05 17:30:13 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/06 21:54:09 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int compare(int a, int b)
+int	compare(int a, int b)
 {
-	return(a > b);
+	return (a > b);
 }
 
 void	swap_int(int *val1, int *val2)

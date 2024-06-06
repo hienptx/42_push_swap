@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:44:51 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/05 21:03:53 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/06 21:53:03 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ void	print_list(i_list *list)
 
 int	list_size(i_list *list)
 {
-	int	i;
+	int		i;
+	i_list	*tmp;
 
 	i = 0;
-	while (list != NULL)
+	tmp = list;
+	while (tmp != NULL)
 	{
 		i++;
-		list = list->next;
+		tmp = tmp->next;
 	}
 	return (i);
 }
@@ -58,7 +60,7 @@ void	lst_delone(i_list *lst, void (*del)(void *))
 	free(lst);
 }
 
-void del(void *data) 
+void	del(void *data)
 {
-    free(data);
+	free(data);
 }
