@@ -6,17 +6,17 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:12 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/06 21:17:14 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/07 18:16:34 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-i_list	*list_new(void *val)
+t_ilist	*list_new(void *val)
 {
-	i_list	*firstnode;
+	t_ilist	*firstnode;
 
-	firstnode = malloc(sizeof(i_list));
+	firstnode = malloc(sizeof(t_ilist));
 	if (firstnode == NULL)
 		return (NULL);
 	firstnode->a = val;
@@ -24,7 +24,7 @@ i_list	*list_new(void *val)
 	return (firstnode);
 }
 
-void	list_add_front(i_list **lst, i_list *new)
+void	list_add_front(t_ilist **lst, t_ilist *new)
 {
 	if (new == NULL)
 		return ;
@@ -32,17 +32,17 @@ void	list_add_front(i_list **lst, i_list *new)
 	*lst = new;
 }
 
-i_list	*append_to_lst(i_list *list, long int nbr)
+t_ilist	*append_to_lst(t_ilist *list, long int nbr)
 {
-	i_list		*newnode;
-	i_list		*tmp;
+	t_ilist		*newnode;
+	t_ilist		*tmp;
 	long int	*n;
 
 	n = malloc(sizeof(long int));
 	if (n == NULL)
 		return (NULL);
 	*n = nbr;
-	newnode = malloc(sizeof(i_list));
+	newnode = malloc(sizeof(t_ilist));
 	if (newnode == NULL)
 	{
 		free(n);
@@ -59,7 +59,21 @@ i_list	*append_to_lst(i_list *list, long int nbr)
 	return (list);
 }
 
-i_list	*make_list(int ac, char **ag, i_list *list)
+t_ilist	*check_and_add(long int num, t_ilist *list, char **s)
+{
+	int	valid;
+
+	valid = 1;
+	if (num < MIN || num > MAX)
+		valid = 0;
+	if (valid)
+		list = append_to_lst(list, num);
+	else
+		handling_invalid_input(s, list);
+	return (list);
+}
+
+t_ilist	*make_list(int ac, char **ag, t_ilist *list)
 {
 	int		i;
 	char	**s;
@@ -74,16 +88,17 @@ i_list	*make_list(int ac, char **ag, i_list *list)
 		else
 		{
 			s = ft_split(ag[i], ' ');
-			tmp = s;
 			if (s == NULL)
 				err_message(-1);
-			while (*s++ != NULL)
+			tmp = s;
+			while (*s != NULL)
+			{
 				list = check_and_add(ft_atoi(*s), list, s);
+				s++;
+			}
 			ft_free(tmp);
 		}
 	}
-	if (!check_duplicates(list))
-		handling_invalid_input(NULL, list);
 	return (list);
 }
 

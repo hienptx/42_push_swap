@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:28:58 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/06 21:52:37 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/07 17:29:57 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,39 @@ typedef struct n_list
 	void			*a;
 	void			*b;
 	struct n_list	*next;
-}					i_list;
+}					t_ilist;
 
 int					arg_handling(int ac, char **ag);
 int					num_arg_handling(int ac, char **ag);
 int					str_arg_handling(char *s);
 
-i_list				*check_and_add(long int num, i_list *list, char **s);
-void				handling_invalid_input(char **s, i_list *list);
-int					check_duplicates(i_list *list);
+t_ilist				*check_and_add(long int num, t_ilist *list, char **s);
+void				handling_invalid_input(char **s, t_ilist *list);
+int					check_duplicates(t_ilist *list);
 void				err_message(int n);
 
-i_list				*make_list(int ac, char **ag, i_list *list);
-i_list				*append_to_lst(i_list *list, long int nbr);
-void				list_add_front(i_list **lst, i_list *new);
-i_list				*list_new(void *content);
+t_ilist				*make_list(int ac, char **ag, t_ilist *list);
+t_ilist				*append_to_lst(t_ilist *list, long int nbr);
+void				list_add_front(t_ilist **lst, t_ilist *new);
+t_ilist				*list_new(void *content);
 
-void				print_list(i_list *list);
-void				ft_freelst(i_list *list);
-int					list_size(i_list *list);
-void				lst_delone(i_list *lst, void (*del)(void *));
+void				print_list(t_ilist *list);
+void				ft_freelst(t_ilist *list);
+int					list_size(t_ilist *list);
+void				lst_delone(t_ilist *lst, void (*del)(void *));
 void				del(void *data);
 
 void				swap_int(int *val1, int *val2);
-void				swap_a(i_list **list);
+void				swap_a(t_ilist **list);
 int					compare(int a, int b);
-void				rotate_a(i_list **list);
-void				push_a(i_list **stack_a, i_list **stack_b);
+void				rotate_a(t_ilist **list);
+void				push_a(t_ilist **stack_a, t_ilist **stack_b);
 
-void				push_b(i_list **stack_a, i_list **stack_b);
-void				swap_b(i_list **list);
+void				push_b(t_ilist **stack_a, t_ilist **stack_b);
+void				swap_b(t_ilist **list);
+void				ss(t_ilist **stack_a, t_ilist **stack_b);
+
+void				sort_size_3(t_ilist **list_a, t_ilist **list_b);
+void				sort_size_4(t_ilist **list_a, t_ilist **list_b);
 
 #endif

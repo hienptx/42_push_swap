@@ -6,13 +6,13 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:09 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/05 15:36:49 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/07 15:38:58 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	handling_invalid_input(char **s, i_list *list)
+void	handling_invalid_input(char **s, t_ilist *list)
 {
 	if (s != NULL)
 		ft_free(s);
@@ -21,10 +21,10 @@ void	handling_invalid_input(char **s, i_list *list)
 	err_message(1);
 }
 
-int	check_duplicates(i_list *list)
+int	check_duplicates(t_ilist *list)
 {
-	i_list	*tmp;
-	i_list	*curr;
+	t_ilist	*tmp;
+	t_ilist	*curr;
 
 	tmp = list;
 	while (tmp != NULL)
@@ -39,20 +39,6 @@ int	check_duplicates(i_list *list)
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-i_list	*check_and_add(long int num, i_list *list, char **s)
-{
-	int	valid;
-
-	valid = 1;
-	if (num < MIN || num > MAX)
-		valid = 0;
-	if (valid)
-		list = append_to_lst(list, num);
-	else
-		handling_invalid_input(s, list);
-	return (list);
 }
 
 int	str_arg_handling(char *s)

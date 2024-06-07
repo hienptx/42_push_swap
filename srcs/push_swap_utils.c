@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:05:43 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/06 21:54:09 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/07 14:12:09 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,10 @@ void	err_message(int n)
 		ft_printf("Error: Invalid Arguments\n");
 	if (n == -1)
 		ft_printf("Error: Malloc failed");
+	if (n == -2)
+	{
+		ft_printf("Error: Malloc failed");
+		return ;
+	}
 	exit(EXIT_FAILURE);
 }

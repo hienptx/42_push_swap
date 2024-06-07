@@ -6,7 +6,7 @@
 #    By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 15:52:00 by hipham            #+#    #+#              #
-#    Updated: 2024/06/05 16:06:44 by hipham           ###   ########.fr        #
+#    Updated: 2024/06/07 15:43:23 by hipham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ LEAKS = -L../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next -I ../LeakSanitize
 
 # c files
 SRCS = push_swap.c arg_handling.c make_list.c sort_instruction.c linked_list_utils.c \
-		push_swap_utils.c
+		push_swap_utils.c sort_small_list.c
 
 # Dependencies
 LIBFT = $(LIBFT_PATH)/libft.a
