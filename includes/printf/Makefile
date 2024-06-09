@@ -1,6 +1,6 @@
 NAME = ftprintf.a
 
-CC = CC
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -I./includes
 DEBUG = -g
 

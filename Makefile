@@ -30,7 +30,7 @@ LEAKS = -L../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next -I ../LeakSanitize
 
 # c files
 SRCS = push_swap.c arg_handling.c make_list.c sort_instruction.c linked_list_utils.c \
-		push_swap_utils.c sort_small_list.c
+		push_swap_utils.c sort_small_list.c sort_instruction_utils.c
 
 # Dependencies
 LIBFT = $(LIBFT_PATH)/libft.a
@@ -44,7 +44,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	@echo "Creating archive: $(NAME)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@ $(LEAKS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@$(CC) $(CFLAGS) -o $@ -c $<

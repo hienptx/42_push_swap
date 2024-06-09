@@ -12,23 +12,54 @@
 
 #include "push_swap.h"
 
+int	descending_sorted(t_ilist *stack_a)
+{
+	t_ilist	*tmp;
+
+	tmp = stack_a;
+	while (tmp->next != NULL)
+	{
+		if (*(int *)tmp->a > *(int *)tmp->next->a)
+			tmp = tmp->next;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 t_ilist	*sort_list(t_ilist *list_a, t_ilist *list_b)
 {
 	int	size;
-
+	
 	size = list_size(list_a);
-	if (size == 1)
-		return (list_a);
+	if (size <= 1)
+		return(list_a);
 	if (size == 2 && compare(*(int *)list_a->a, *(int *)list_a->next->a))
-		swap_a(&list_a);
-	if (size == 3)
-		sort_size_3(&list_a, &list_b);
-	if (size == 4)
-		sort_size_4(&list_a, &list_b);
+		swap_it(&list_a, 'a');
+	if (descending_sorted(list_a))
+	{
+		while (--size)
+			push_it(&list_a, &list_b, 'b');
+		while (list_b != NULL)
+		{
+			reverse_rotate(&list_b, 'b');
+			push_it(&list_b, &list_a, 'a');
+		}
+		reverse_rotate(&list_a, 'a');
+	}
+	else
+	{
+		if (size == 3)
+			sort_size_3(&list_a, &list_b);
+		if (size == 4)
+			sort_size_4(&list_a, &list_b);
+		if (size >= 5)
+			sort_size_5(&list_a, &list_b);
+	}
 	return (list_a);
 }
 
-int	need_2_sort(t_ilist *stack_a)
+int	ascending_sorted(t_ilist *stack_a)
 {
 	t_ilist	*tmp;
 
@@ -76,15 +107,14 @@ int	main(int ac, char **ag)
 		list_a = make_list(ac, ag, list_a);
 	if (!check_duplicates(list_a))
 		handling_invalid_input(NULL, list_a);
-	if (need_2_sort(list_a))
+	if (ascending_sorted(list_a))
 	{
 		ft_freelst(list_a);
-		ft_printf("List is sorted\n");
 		exit(EXIT_SUCCESS);
 	}
 	list_a = sort_list(list_a, list_b);
-	ft_printf("Sorted list: \n");
-	print_list(list_a);
+	/* ft_printf("Sorted list: \n");
+	print_list(list_a); */
 	ft_freelst(list_a);
 	ft_freelst(list_b);
 	exit(EXIT_SUCCESS);

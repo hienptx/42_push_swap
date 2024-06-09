@@ -55,7 +55,7 @@ int	list_size(t_ilist *list)
 void	lst_delone(t_ilist *lst, void (*del)(void *))
 {
 	if (lst == NULL || del == NULL)
-		;
+		return ;
 	del(lst->a);
 	free(lst);
 }

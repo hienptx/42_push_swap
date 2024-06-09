@@ -14,7 +14,7 @@
 
 // sa (swap a): Swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one or no elements.
-void	swap_a(t_ilist **list)
+void	swap_it(t_ilist **list, char name)
 {
 	t_ilist	*tmp;
 
@@ -24,21 +24,7 @@ void	swap_a(t_ilist **list)
 	else
 	{
 		swap_int((int *)tmp->a, (int *)tmp->next->a);
-		ft_printf("sa\n");
-	}
-}
-
-void	swap_b(t_ilist **list)
-{
-	t_ilist	*tmp;
-
-	tmp = *list;
-	if (list_size(tmp) < 2)
-		;
-	else
-	{
-		swap_int((int *)tmp->b, (int *)tmp->next->b);
-		ft_printf("sb\n");
+		ft_printf("s%c\n", name);
 	}
 }
 
@@ -62,7 +48,7 @@ void	ss(t_ilist **stack_a, t_ilist **stack_b)
 
 // ra (rotate a): Shift up all elements of stack a by 1.
 // The first element becomes the last one.
-void	rotate_a(t_ilist **list)
+void	rotate_it(t_ilist **list, char name)
 {
 	t_ilist	*first;
 
@@ -70,11 +56,32 @@ void	rotate_a(t_ilist **list)
 	*list = append_to_lst(*list, *(long int *)first->a);
 	*list = first->next;
 	lst_delone(first, del);
+	ft_printf("r%c\n", name);
+}
+
+void	reverse_rotate(t_ilist **list, char name)
+{
+	t_ilist *last;
+    t_ilist *second_last;
+
+    if (!list || !*list || !(*list)->next)
+        return;
+    last = *list;
+    second_last = NULL;
+    while (last->next != NULL) {
+        second_last = last;
+        last = last->next;
+    }
+    second_last->next = NULL;
+    last->next = *list;
+    *list = last;
+	ft_printf("rr%c\n", name);
 }
 
 // pa (push a): Take the first element at the top of b
 // and put it at the top of a. Do nothing if b is empty.
-void	push_b(t_ilist **stack_a, t_ilist **stack_b)
+
+void	push_it(t_ilist **stack_a, t_ilist **stack_b, char name)
 {
 	t_ilist	*tmp;
 	t_ilist	*head;
@@ -96,32 +103,7 @@ void	push_b(t_ilist **stack_a, t_ilist **stack_b)
 		list_add_front(stack_b, head);
 	}
 	*stack_a = tmp->next;
-	ft_printf("pb\n");
+	ft_printf("p%c\n", name);
 	free(tmp);
 }
 
-void	push_a(t_ilist **stack_a, t_ilist **stack_b)
-{
-	t_ilist	*tmp;
-	t_ilist	*head;
-
-	if (stack_b == NULL || *stack_b == NULL)
-		return ;
-	tmp = *stack_b;
-	if (*stack_a == NULL)
-	{
-		*stack_a = append_to_lst(*stack_a, *(int *)(*stack_a)->b);
-		if (tmp->b != NULL)
-			free(tmp->b);
-	}
-	else
-	{
-		head = list_new(tmp->a);
-		if (head == NULL)
-			err_message(-2);
-		list_add_front(stack_a, head);
-	}
-	*stack_b = tmp->next;
-	ft_printf("pa\n");
-	free(tmp);
-}

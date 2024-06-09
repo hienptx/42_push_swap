@@ -28,37 +28,49 @@ typedef struct n_list
 	struct n_list	*next;
 }					t_ilist;
 
-int					arg_handling(int ac, char **ag);
-int					num_arg_handling(int ac, char **ag);
-int					str_arg_handling(char *s);
-
-t_ilist				*check_and_add(long int num, t_ilist *list, char **s);
+//arg_handling.c
 void				handling_invalid_input(char **s, t_ilist *list);
 int					check_duplicates(t_ilist *list);
-void				err_message(int n);
+int					str_arg_handling(char *s);
+int					num_arg_handling(int ac, char **ag);
 
-t_ilist				*make_list(int ac, char **ag, t_ilist *list);
-t_ilist				*append_to_lst(t_ilist *list, long int nbr);
-void				list_add_front(t_ilist **lst, t_ilist *new);
-t_ilist				*list_new(void *content);
-
-void				print_list(t_ilist *list);
+// linked_list_utils.c
 void				ft_freelst(t_ilist *list);
+void				print_list(t_ilist *list);
 int					list_size(t_ilist *list);
 void				lst_delone(t_ilist *lst, void (*del)(void *));
 void				del(void *data);
 
-void				swap_int(int *val1, int *val2);
-void				swap_a(t_ilist **list);
+// make_list.c
+t_ilist				*list_new(void *content);
+void				list_add_front(t_ilist **lst, t_ilist *new);
+t_ilist				*append_to_lst(t_ilist *list, long int nbr);
+t_ilist				*check_and_add(long int num, t_ilist *list, char **s);
+t_ilist				*make_list(int ac, char **ag, t_ilist *list);
+
+//push_swap_utils.c
 int					compare(int a, int b);
-void				rotate_a(t_ilist **list);
-void				push_a(t_ilist **stack_a, t_ilist **stack_b);
+void				swap_int(int *val1, int *val2);
+void				err_message(int n);
 
-void				push_b(t_ilist **stack_a, t_ilist **stack_b);
-void				swap_b(t_ilist **list);
+// push_swap.c
+int					arg_handling(int ac, char **ag);
+
+// sort_instruction.c
+void				swap_it(t_ilist **list, char name);
 void				ss(t_ilist **stack_a, t_ilist **stack_b);
+void				rotate_it(t_ilist **list, char name);
+void				reverse_rotate(t_ilist **list, char name);
+void				push_it(t_ilist **stack_a, t_ilist **stack_b, char name);
 
+// sort_instruction_utils.c
+void				sa_pb(t_ilist **list_a, t_ilist **list_b);
+void				sb_pa(t_ilist **list_a, t_ilist **list_b);
+void				sa_pa(t_ilist **list_a, t_ilist **list_b);
+
+// sort_small_list.c
 void				sort_size_3(t_ilist **list_a, t_ilist **list_b);
 void				sort_size_4(t_ilist **list_a, t_ilist **list_b);
+void				sort_size_5(t_ilist **list_a, t_ilist **list_b);
 
 #endif
