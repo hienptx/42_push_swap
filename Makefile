@@ -6,7 +6,7 @@
 #    By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 15:52:00 by hipham            #+#    #+#              #
-#    Updated: 2024/06/07 15:43:23 by hipham           ###   ########.fr        #
+#    Updated: 2024/06/10 16:07:50 by hipham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	@echo "Creating archive: $(NAME)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@ $(LEAKS)
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@$(CC) $(CFLAGS) -o $@ -c $<

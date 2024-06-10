@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:28:58 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/07 17:29:57 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/10 17:14:31 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void				err_message(int n);
 
 // push_swap.c
 int					arg_handling(int ac, char **ag);
+int					ascending_sorted(t_ilist *stack_a);
 
 // sort_instruction.c
 void				swap_it(t_ilist **list, char name);
@@ -70,7 +71,7 @@ void				sa_pa(t_ilist **list_a, t_ilist **list_b);
 
 // sort_small_list.c
 void				sort_size_3(t_ilist **list_a, t_ilist **list_b);
-void				sort_size_4(t_ilist **list_a, t_ilist **list_b);
-void				sort_size_5(t_ilist **list_a, t_ilist **list_b);
+void				sort_small_list(t_ilist **list_a, t_ilist **list_b);
+void				sort_big_list(t_ilist **list_a, t_ilist **list_b);
 
 #endif

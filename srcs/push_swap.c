@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:16 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/07 18:18:04 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/10 17:14:15 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ t_ilist	*sort_list(t_ilist *list_a, t_ilist *list_b)
 		return(list_a);
 	if (size == 2 && compare(*(int *)list_a->a, *(int *)list_a->next->a))
 		swap_it(&list_a, 'a');
+	if (size == 3)
+		sort_size_3(&list_a, &list_b);
 	if (descending_sorted(list_a))
 	{
 		while (--size)
@@ -49,12 +51,10 @@ t_ilist	*sort_list(t_ilist *list_a, t_ilist *list_b)
 	}
 	else
 	{
-		if (size == 3)
-			sort_size_3(&list_a, &list_b);
-		if (size == 4)
-			sort_size_4(&list_a, &list_b);
-		if (size >= 5)
-			sort_size_5(&list_a, &list_b);
+		if (size <= 10)
+			sort_small_list(&list_a, &list_b);
+		if (size > 10)
+			sort_big_list(&list_a, &list_b);
 	}
 	return (list_a);
 }
@@ -113,8 +113,8 @@ int	main(int ac, char **ag)
 		exit(EXIT_SUCCESS);
 	}
 	list_a = sort_list(list_a, list_b);
-	/* ft_printf("Sorted list: \n");
-	print_list(list_a); */
+	// ft_printf("Sorted list: \n");
+	// print_list(list_a);
 	ft_freelst(list_a);
 	ft_freelst(list_b);
 	exit(EXIT_SUCCESS);

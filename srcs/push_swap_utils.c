@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:05:43 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/07 14:12:09 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/10 16:06:56 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	swap_int(int *val1, int *val2)
 void	err_message(int n)
 {
 	if (n == 0)
-		ft_printf("Error: Missing Arguments\n");
+		ft_printf("Error\n");
 	if (n == 1)
-		ft_printf("Error: Invalid Arguments\n");
+		ft_printf("Error\n");
 	if (n == -1)
-		ft_printf("Error: Malloc failed");
+		ft_printf("Error\n");
 	if (n == -2)
 	{
-		ft_printf("Error: Malloc failed");
+		ft_printf("Error\n");
 		return ;
 	}
 	exit(EXIT_FAILURE);
