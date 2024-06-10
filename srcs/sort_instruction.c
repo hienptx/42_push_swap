@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:20 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/07 18:09:25 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/10 21:11:05 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,21 @@ void	rotate_it(t_ilist **list, char name)
 
 void	reverse_rotate(t_ilist **list, char name)
 {
-	t_ilist *last;
-    t_ilist *second_last;
+	t_ilist	*last;
+	t_ilist	*second_last;
 
-    if (!list || !*list || !(*list)->next)
-        return;
-    last = *list;
-    second_last = NULL;
-    while (last->next != NULL) {
-        second_last = last;
-        last = last->next;
-    }
-    second_last->next = NULL;
-    last->next = *list;
-    *list = last;
+	if (!list || !*list || !(*list)->next)
+		return ;
+	last = *list;
+	second_last = NULL;
+	while (last->next != NULL)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = *list;
+	*list = last;
 	ft_printf("rr%c\n", name);
 }
 
@@ -106,4 +107,3 @@ void	push_it(t_ilist **stack_a, t_ilist **stack_b, char name)
 	ft_printf("p%c\n", name);
 	free(tmp);
 }
-

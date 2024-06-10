@@ -6,56 +6,43 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:16 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/10 17:14:15 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/10 21:15:19 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	descending_sorted(t_ilist *stack_a)
-{
-	t_ilist	*tmp;
+// int	descending_sorted(t_ilist *stack_a)
+// {
+// 	t_ilist	*tmp;
 
-	tmp = stack_a;
-	while (tmp->next != NULL)
-	{
-		if (*(int *)tmp->a > *(int *)tmp->next->a)
-			tmp = tmp->next;
-		else
-			return (0);
-	}
-	return (1);
-}
+// 	tmp = stack_a;
+// 	while (tmp->next != NULL)
+// 	{
+// 		if (*(int *)tmp->a > *(int *)tmp->next->a)
+// 			tmp = tmp->next;
+// 		else
+// 			return (0);
+// 	}
+// 	return (1);
+// }
 
 t_ilist	*sort_list(t_ilist *list_a, t_ilist *list_b)
 {
 	int	size;
-	
+
 	size = list_size(list_a);
 	if (size <= 1)
-		return(list_a);
+		return (list_a);
 	if (size == 2 && compare(*(int *)list_a->a, *(int *)list_a->next->a))
 		swap_it(&list_a, 'a');
 	if (size == 3)
 		sort_size_3(&list_a, &list_b);
-	if (descending_sorted(list_a))
-	{
-		while (--size)
-			push_it(&list_a, &list_b, 'b');
-		while (list_b != NULL)
-		{
-			reverse_rotate(&list_b, 'b');
-			push_it(&list_b, &list_a, 'a');
-		}
-		reverse_rotate(&list_a, 'a');
-	}
-	else
-	{
-		if (size <= 10)
-			sort_small_list(&list_a, &list_b);
-		if (size > 10)
-			sort_big_list(&list_a, &list_b);
-	}
+	if (size <= 10)
+		sort_small_list(&list_a, &list_b);
+	// if (size > 10)
+	// 	sort_big_list(&list_a, &list_b);
+
 	return (list_a);
 }
 
@@ -113,8 +100,8 @@ int	main(int ac, char **ag)
 		exit(EXIT_SUCCESS);
 	}
 	list_a = sort_list(list_a, list_b);
-	// ft_printf("Sorted list: \n");
-	// print_list(list_a);
+	ft_printf("Sorted list: \n");
+	print_list(list_a);
 	ft_freelst(list_a);
 	ft_freelst(list_b);
 	exit(EXIT_SUCCESS);

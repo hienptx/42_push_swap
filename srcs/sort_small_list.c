@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:42:39 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/10 17:25:22 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/10 21:12:58 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,9 @@ void	sort_small_list(t_ilist **list_a, t_ilist **list_b)
 		push_it(list_b, list_a, 'a');
 }
 
-void	sort_big_list(t_ilist **list_a, t_ilist **list_b)
-{
-	
-}
+// void	sort_big_list(t_ilist **list_a, t_ilist **list_b)
+// {
+// }
 
 // void	sort_small_list(t_ilist **list_a, t_ilist **list_b)
 // {
