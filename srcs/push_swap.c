@@ -12,20 +12,6 @@
 
 #include "push_swap.h"
 
-// int	descending_sorted(t_ilist *stack_a)
-// {
-// 	t_ilist	*tmp;
-
-// 	tmp = stack_a;
-// 	while (tmp->next != NULL)
-// 	{
-// 		if (*(int *)tmp->a > *(int *)tmp->next->a)
-// 			tmp = tmp->next;
-// 		else
-// 			return (0);
-// 	}
-// 	return (1);
-// }
 
 t_ilist	*sort_list(t_ilist *list_a, t_ilist *list_b)
 {
@@ -34,14 +20,19 @@ t_ilist	*sort_list(t_ilist *list_a, t_ilist *list_b)
 	size = list_size(list_a);
 	if (size <= 1)
 		return (list_a);
-	if (size == 2 && compare(*(int *)list_a->a, *(int *)list_a->next->a))
+	if (size == 2 && compare(*list_a->a, *list_a->next->a))
 		swap_it(&list_a, 'a');
 	if (size == 3)
 		sort_size_3(&list_a, &list_b);
-	if (size <= 10)
+	if (size > 3 && size <= 10)
+	{
 		sort_small_list(&list_a, &list_b);
-	// if (size > 10)
-	// 	sort_big_list(&list_a, &list_b);
+		sort_size_3(&list_a, &list_b);
+		while (list_size(list_b) > 0)
+			push_it(&list_b, &list_a, 'a');
+	}
+	if (size > 10)
+	 	sort_big_list(&list_a, &list_b);
 
 	return (list_a);
 }
@@ -53,7 +44,7 @@ int	ascending_sorted(t_ilist *stack_a)
 	tmp = stack_a;
 	while (tmp->next != NULL)
 	{
-		if (*(int *)tmp->a < *(int *)tmp->next->a)
+		if (*tmp->a < *tmp->next->a)
 			tmp = tmp->next;
 		else
 			return (0);
@@ -100,9 +91,23 @@ int	main(int ac, char **ag)
 		exit(EXIT_SUCCESS);
 	}
 	list_a = sort_list(list_a, list_b);
-	ft_printf("Sorted list: \n");
-	print_list(list_a);
+	// ft_printf("Sorted list: \n");
+	// print_list(list_a);
 	ft_freelst(list_a);
 	ft_freelst(list_b);
 	exit(EXIT_SUCCESS);
 }
+// int	descending_sorted(t_ilist *stack_a)
+// {
+// 	t_ilist	*tmp;
+
+// 	tmp = stack_a;
+// 	while (tmp->next != NULL)
+// 	{
+// 		if (*(int *)tmp->a > *(int *)tmp->next->a)
+// 			tmp = tmp->next;
+// 		else
+// 			return (0);
+// 	}
+// 	return (1);
+// }

@@ -23,8 +23,8 @@
 
 typedef struct n_list
 {
-	void			*a;
-	void			*b;
+	long			*a;
+	long				*b;
 	struct n_list	*next;
 }					t_ilist;
 
@@ -68,10 +68,15 @@ void				push_it(t_ilist **stack_a, t_ilist **stack_b, char name);
 void				sa_pb(t_ilist **list_a, t_ilist **list_b);
 void				sb_pa(t_ilist **list_a, t_ilist **list_b);
 void				sa_pa(t_ilist **list_a, t_ilist **list_b);
+int					get_min(t_ilist *list);
+int	 				get_max(t_ilist *list);
+
 
 // sort_small_list.c
 void				sort_size_3(t_ilist **list_a, t_ilist **list_b);
 void				sort_small_list(t_ilist **list_a, t_ilist **list_b);
 void				sort_big_list(t_ilist **list_a, t_ilist **list_b);
+// int					get_max_index(t_ilist *list);
+int					get_min_index(t_ilist *list);
 
 #endif

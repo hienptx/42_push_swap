@@ -44,7 +44,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	@echo "Creating archive: $(NAME)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@ $(LEAKS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@$(CC) $(CFLAGS) -o $@ -c $<

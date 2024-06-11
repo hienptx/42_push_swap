@@ -23,7 +23,7 @@ void	swap_it(t_ilist **list, char name)
 		;
 	else
 	{
-		swap_int((int *)tmp->a, (int *)tmp->next->a);
+		swap_int(tmp->a, tmp->next->a);
 		ft_printf("s%c\n", name);
 	}
 }
@@ -38,11 +38,11 @@ void	ss(t_ilist **stack_a, t_ilist **stack_b)
 	if (list_size(tmp) < 2)
 		;
 	else
-		swap_int((int *)tmp->a, (int *)tmp->next->a);
+		swap_int(tmp->a, tmp->next->a);
 	if (list_size(tmp1) < 2)
 		;
 	else
-		swap_int((int *)tmp1->a, (int *)tmp1->next->a);
+		swap_int(tmp1->a, tmp1->next->a);
 	ft_printf("ss\n");
 }
 
@@ -53,7 +53,7 @@ void	rotate_it(t_ilist **list, char name)
 	t_ilist	*first;
 
 	first = *list;
-	*list = append_to_lst(*list, *(long int *)first->a);
+	*list = append_to_lst(*list, *first->a);
 	*list = first->next;
 	lst_delone(first, del);
 	ft_printf("r%c\n", name);
@@ -92,7 +92,7 @@ void	push_it(t_ilist **stack_a, t_ilist **stack_b, char name)
 	tmp = *stack_a;
 	if (*stack_b == NULL)
 	{
-		*stack_b = append_to_lst(*stack_b, *(int *)(*stack_a)->a);
+		*stack_b = append_to_lst(*stack_b, *(*stack_a)->a);
 		if (tmp->a != NULL)
 			free(tmp->a);
 	}
