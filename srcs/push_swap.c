@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:16 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/10 21:15:19 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/12 18:27:25 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ t_ilist	*sort_list(t_ilist *list_a, t_ilist *list_b)
 		while (list_size(list_b) > 0)
 			push_it(&list_b, &list_a, 'a');
 	}
-	if (size > 10)
-	 	sort_big_list(&list_a, &list_b);
-
+	if (size > 10 && size <= 100)
+	 	sort_size_100(&list_a, &list_b);
+	if (size > 100)
+	 	sort_size_100(&list_a, &list_b);
 	return (list_a);
 }
 

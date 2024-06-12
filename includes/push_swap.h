@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:28:58 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/10 17:14:31 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/12 18:29:09 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ t_ilist				*make_list(int ac, char **ag, t_ilist *list);
 
 //push_swap_utils.c
 int					compare(int a, int b);
-void				swap_int(int *val1, int *val2);
+void				swap_int(long *val1, long *val2);
 void				err_message(int n);
+int					get_max_index(t_ilist *list);
+int					get_min_index(t_ilist *list);
 
 // push_swap.c
 int					arg_handling(int ac, char **ag);
@@ -75,8 +77,6 @@ int	 				get_max(t_ilist *list);
 // sort_small_list.c
 void				sort_size_3(t_ilist **list_a, t_ilist **list_b);
 void				sort_small_list(t_ilist **list_a, t_ilist **list_b);
-void				sort_big_list(t_ilist **list_a, t_ilist **list_b);
-// int					get_max_index(t_ilist *list);
-int					get_min_index(t_ilist *list);
+void				sort_size_100(t_ilist **list_a, t_ilist **list_b);
 
 #endif
