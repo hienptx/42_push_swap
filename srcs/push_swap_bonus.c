@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 20:22:16 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/13 17:27:58 by hipham           ###   ########.fr       */
+/*   Created: 2024/06/13 16:45:48 by hipham            #+#    #+#             */
+/*   Updated: 2024/06/13 17:28:26 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,18 +96,3 @@ int	main(int ac, char **ag)
 	ft_freelst(list_b);
 	exit(EXIT_SUCCESS);
 }
-
-// int	descending_sorted(t_ilist *stack_a)
-// {
-// 	t_ilist	*tmp;
-
-// 	tmp = stack_a;
-// 	while (tmp->next != NULL)
-// 	{
-// 		if (*(int *)tmp->a > *(int *)tmp->next->a)
-// 			tmp = tmp->next;
-// 		else
-// 			return (0);
-// 	}
-// 	return (1);
-// }

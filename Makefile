@@ -6,11 +6,12 @@
 #    By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 15:52:00 by hipham            #+#    #+#              #
-#    Updated: 2024/06/10 16:07:50 by hipham           ###   ########.fr        #
+#    Updated: 2024/06/13 17:26:24 by hipham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS = checker
 
 # Directories path
 LIBFT_PATH = ./includes/libft
@@ -29,13 +30,18 @@ CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_INCL) -I$(PRINTF_INCL) -I$(PSW_INCL)
 LEAKS = -L../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next -I ../LeakSanitize
 
 # c files
-SRCS = push_swap.c arg_handling.c make_list.c sort_instruction.c linked_list_utils.c \
-		push_swap_utils.c sort_small_list.c sort_instruction_utils.c
+SRCS =	push_swap.c arg_handling.c make_list.c sort_instruction.c linked_list_utils.c \
+		push_swap_utils.c sort_small_list.c sort_instruction_utils.c sort_big_list.c \
+		
+BONUS_SRCS = arg_handling.c make_list.c sort_instruction.c linked_list_utils.c \
+		push_swap_utils.c sort_small_list.c sort_instruction_utils.c sort_big_list.c \
+		push_swap_bonus.c 
 
 # Dependencies
 LIBFT = $(LIBFT_PATH)/libft.a
 PRINTF = $(PRINTF_PATH)/ftprintf.a
 OBJS = $(addprefix $(OBJS_PATH)/, $(SRCS:.c=.o))
+BONUS_OBJS = $(addprefix $(OBJS_PATH)/, $(BONUS_SRCS:.c=.o))
 
 # Target
 .PHONY: all clean fclean re
@@ -44,7 +50,13 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	@echo "Creating archive: $(NAME)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@ $(LEAKS)
+
+bonus: $(BONUS)
+
+$(BONUS): $(BONUS_OBJS)
+	@echo "Creating archive: $(BONUS)"
+	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) $(PRINTF) -o $@
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@$(CC) $(CFLAGS) -o $@ -c $<
@@ -59,10 +71,11 @@ $(PRINTF):
 	make -C $(PRINTF_PATH)
 
 clean:
-	rm -rf $(OBJS) $(LIBFT) $(PRINTF)
+	rm -rf $(OBJS) $(BONUS_OBJS) $(LIBFT) $(PRINTF)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS)
 	make -C $(LIBFT_PATH) fclean
 	make -C $(PRINTF_PATH) fclean
 

@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:42:39 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/12 20:06:56 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/13 16:28:23 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	sort_reverse_small_list(t_ilist **list_b, t_ilist **list_a)
 	}
 }
 
-void	sort_chunk_list(t_ilist **list_a, t_ilist **list_b)
+void	split_list_a(t_ilist **list_a, t_ilist **list_b)
 {
 	int		size;
 	int		avrg;
@@ -99,7 +99,6 @@ void	sort_chunk_list(t_ilist **list_a, t_ilist **list_b)
 	tmp = *list_a;
 	size = list_size(*list_a);
 	avrg = (get_min(*list_a) + get_max(*list_a)) / 2;
-
 	size = list_size(*list_a);
 	while (size-- > 0)
 	{
@@ -111,71 +110,25 @@ void	sort_chunk_list(t_ilist **list_a, t_ilist **list_b)
 	}
 }
 
-
-void	sort_size_100(t_ilist **list_a, t_ilist **list_b)
+void	split_list_b(t_ilist **list_b, t_ilist **list_a)
 {
 	int		size;
-	int		first;
-	int		store;
-	int		size_b;
+	int		avrg;
+	t_ilist	*tmp;
 
-	first = 1;
-	store = 0;
-	sort_chunk_list(list_a, list_b);
-	size = list_size(*list_a);
-	size_b = list_size(*list_b);
-	if (first == 1)
-		store = size_b;
-	first = 0;
-	if (size > 50)
-		sort_size_100(list_a, list_b);
-	sort_small_list(list_a, list_b);
-	while (list_size(*list_b) - 1 > store)
-		push_it(list_b, list_a, 'a');
-	sort_reverse_small_list(list_b, list_a);
-	while (list_size(*list_b) > 0)
-		push_it(list_b, list_a, 'a');
+	tmp = *list_b;
+	size = list_size(*list_b);
+	avrg = (get_min(*list_b) + get_max(*list_b)) / 2;
+	size = list_size(*list_b);
+	while (size-- > 0)
+	{
+		if (*tmp->a >= avrg)
+			push_it(list_b, list_a, 'a');
+		else
+			rotate_it(list_b, 'b');
+		tmp = *list_b;
+	}
 }
-
-// void sort_size_500
-// {
-	
-// }
-
-// void	sort_big_list(t_ilist **list_a, t_ilist **list_b)
-// {
-// 	int		size;
-// 	int		size_b;
-// 	int		avrg;
-// 	t_ilist	*tmp;
-// 	int		loop;
-
-// 	loop = 5;
-// 	tmp = *list_a;
-// 	size = list_size(*list_a);
-// 	avrg = (get_min(*list_a) + get_max(*list_a)) / loop;
-// 	while (--size > 0)
-// 	{
-// 		if (*tmp->a <= avrg)
-// 			push_it(list_a, list_b, 'b');
-// 		else
-// 			rotate_it(list_a, 'a');
-// 		tmp = *list_a;
-// 	}
-// 	size_b = list_size(*list_b);
-// 	sort_reverse_small_list(list_b, list_a);
-// 	while (size_b--)
-// 		push_it(list_a, list_b, 'b');
-// 	size_b = list_size(*list_b);
-// 	sort_chunk_list(list_a, list_b);
-// 	sort_small_list(list_a, list_b);
-// 	while (list_size(*list_b) >= size_b)
-// 		push_it(list_b, list_a, 'a');
-// 	ft_printf("list a\n");
-// 	print_list(*list_a);
-// 	ft_printf("list b\n");
-// 	print_list(*list_b);
-// }
 
 // void	sort_small_list(t_ilist **list_a, t_ilist **list_b)
 // {
