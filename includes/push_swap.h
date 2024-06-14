@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:28:58 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/13 16:29:04 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:24:54 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct n_list
 {
 	long			*a;
 	long			*b;
+	char			*instr;
 	struct n_list	*next;
 }					t_ilist;
 
@@ -58,6 +59,7 @@ int					get_min_index(t_ilist *list);
 // push_swap.c
 int					arg_handling(int ac, char **ag);
 int					ascending_sorted(t_ilist *stack_a);
+t_ilist				*sort_list(t_ilist *list_a, t_ilist *list_b);
 
 // sort_instruction.c
 void				swap_it(t_ilist **list, char name);
@@ -80,7 +82,7 @@ void				sort_reverse_small_list(t_ilist **list_b, t_ilist **list_a);
 void				split_list_b(t_ilist **list_b, t_ilist **list_a);
 void				split_list_a(t_ilist **list_a, t_ilist **list_b);
 
-//sort big list.c
+//sort_big_list.c
 void				sort_size_100(t_ilist **list_a, t_ilist **list_b);
 void				sort_size_500(t_ilist **list_a, t_ilist **list_b);
 

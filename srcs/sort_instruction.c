@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:20 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/10 21:11:05 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:26:01 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	reverse_rotate(t_ilist **list, char name)
 
 // pa (push a): Take the first element at the top of b
 // and put it at the top of a. Do nothing if b is empty.
-
 void	push_it(t_ilist **stack_a, t_ilist **stack_b, char name)
 {
 	t_ilist	*tmp;

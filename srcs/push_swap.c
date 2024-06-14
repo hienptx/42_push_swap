@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:22:16 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/13 17:27:58 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:25:53 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int	main(int ac, char **ag)
 
 	list_a = NULL;
 	list_b = NULL;
-	
 	if (ac < 2)
 		exit(EXIT_SUCCESS);
 	if (arg_handling(ac, ag) == 0)

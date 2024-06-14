@@ -6,12 +6,11 @@
 #    By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 15:52:00 by hipham            #+#    #+#              #
-#    Updated: 2024/06/13 17:26:24 by hipham           ###   ########.fr        #
+#    Updated: 2024/06/14 16:32:44 by hipham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-BONUS = checker
 
 # Directories path
 LIBFT_PATH = ./includes/libft
@@ -31,11 +30,7 @@ LEAKS = -L../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next -I ../LeakSanitize
 
 # c files
 SRCS =	push_swap.c arg_handling.c make_list.c sort_instruction.c linked_list_utils.c \
-		push_swap_utils.c sort_small_list.c sort_instruction_utils.c sort_big_list.c \
-		
-BONUS_SRCS = arg_handling.c make_list.c sort_instruction.c linked_list_utils.c \
-		push_swap_utils.c sort_small_list.c sort_instruction_utils.c sort_big_list.c \
-		push_swap_bonus.c 
+		push_swap_utils.c sort_small_list.c sort_instruction_utils.c sort_big_list.c
 
 # Dependencies
 LIBFT = $(LIBFT_PATH)/libft.a
@@ -50,13 +45,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(PRINTF)
 	@echo "Creating archive: $(NAME)"
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@ $(LEAKS)
-
-bonus: $(BONUS)
-
-$(BONUS): $(BONUS_OBJS)
-	@echo "Creating archive: $(BONUS)"
-	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) $(PRINTF) -o $@
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $@
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c | $(OBJS_PATH)
 	@$(CC) $(CFLAGS) -o $@ -c $<
