@@ -6,7 +6,7 @@
 #    By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/24 15:52:00 by hipham            #+#    #+#              #
-#    Updated: 2024/06/14 16:32:44 by hipham           ###   ########.fr        #
+#    Updated: 2024/06/14 16:47:06 by hipham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,11 +60,10 @@ $(PRINTF):
 	make -C $(PRINTF_PATH)
 
 clean:
-	rm -rf $(OBJS) $(BONUS_OBJS) $(LIBFT) $(PRINTF)
+	rm -rf $(OBJS) $(LIBFT) $(PRINTF)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(BONUS)
 	make -C $(LIBFT_PATH) fclean
 	make -C $(PRINTF_PATH) fclean
 
