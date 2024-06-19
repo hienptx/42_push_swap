@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 15:42:39 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/13 16:28:23 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/19 16:26:42 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,40 +93,34 @@ void	sort_reverse_small_list(t_ilist **list_b, t_ilist **list_a)
 void	split_list_a(t_ilist **list_a, t_ilist **list_b)
 {
 	int		size;
-	int		avrg;
-	t_ilist	*tmp;
+	long	avrg;
 
-	tmp = *list_a;
 	size = list_size(*list_a);
 	avrg = (get_min(*list_a) + get_max(*list_a)) / 2;
 	size = list_size(*list_a);
 	while (size-- > 0)
 	{
-		if (*tmp->a <= avrg)
+		if (*(*list_a)->a < avrg)
 			push_it(list_a, list_b, 'b');
 		else
 			rotate_it(list_a, 'a');
-		tmp = *list_a;
 	}
 }
 
 void	split_list_b(t_ilist **list_b, t_ilist **list_a)
 {
 	int		size;
-	int		avrg;
-	t_ilist	*tmp;
+	long	avrg;
 
-	tmp = *list_b;
 	size = list_size(*list_b);
 	avrg = (get_min(*list_b) + get_max(*list_b)) / 2;
 	size = list_size(*list_b);
 	while (size-- > 0)
 	{
-		if (*tmp->a >= avrg)
+		if (*(*list_b)->a > avrg)
 			push_it(list_b, list_a, 'a');
 		else
 			rotate_it(list_b, 'b');
-		tmp = *list_b;
 	}
 }
 

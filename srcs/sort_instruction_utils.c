@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 21:10:34 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/13 16:25:01 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/17 19:17:48 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,18 @@ void	sb_pa(t_ilist **list_a, t_ilist **list_b)
 	push_it(list_b, list_a, 'a');
 }
 
-int	get_min(t_ilist *list)
+void	rr(t_ilist **list_a, t_ilist **list_b)
 {
-	int		min;
-	t_ilist	*tmp;
+	t_ilist	*tmp_a;
+	t_ilist	*tmp_b;
 
-	tmp = list;
-	min = *tmp->a;
-	while (tmp != NULL)
-	{
-		if (*tmp->a < min)
-			min = *tmp->a;
-		tmp = tmp->next;
-	}
-	return (min);
-}
-
-int	get_max(t_ilist *list)
-{
-	int		max;
-	t_ilist	*tmp;
-
-	tmp = list;
-	max = *tmp->a;
-	while (tmp != NULL)
-	{
-		if (*tmp->a > max)
-			max = *tmp->a;
-		tmp = tmp->next;
-	}
-	return (max);
+	tmp_a = *list_a;
+	*list_a = append_to_lst(*list_a, *tmp_a->a);
+	*list_a = tmp_a->next;
+	lst_delone(tmp_a, del);
+	tmp_b = *list_b;
+	*list_b = append_to_lst(*list_b, *tmp_b->a);
+	*list_b = tmp_b->next;
+	lst_delone(tmp_b, del);
+	ft_printf("rr\n");
 }

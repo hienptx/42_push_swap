@@ -6,7 +6,7 @@
 /*   By: hipham <hipham@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:28:58 by hipham            #+#    #+#             */
-/*   Updated: 2024/06/14 16:24:54 by hipham           ###   ########.fr       */
+/*   Updated: 2024/06/19 16:28:51 by hipham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int					get_min_index(t_ilist *list);
 int					arg_handling(int ac, char **ag);
 int					ascending_sorted(t_ilist *stack_a);
 t_ilist				*sort_list(t_ilist *list_a, t_ilist *list_b);
+long				get_min(t_ilist *list);
+long				get_max(t_ilist *list);
 
 // sort_instruction.c
 void				swap_it(t_ilist **list, char name);
@@ -72,8 +74,7 @@ void				push_it(t_ilist **stack_a, t_ilist **stack_b, char name);
 void				sa_pb(t_ilist **list_a, t_ilist **list_b);
 void				sb_pa(t_ilist **list_a, t_ilist **list_b);
 void				sa_pa(t_ilist **list_a, t_ilist **list_b);
-int					get_min(t_ilist *list);
-int					get_max(t_ilist *list);
+void				rr(t_ilist **list_a, t_ilist **list_b);
 
 // sort_small_list.c
 void				sort_size_3(t_ilist **list_a, t_ilist **list_b);
@@ -82,7 +83,7 @@ void				sort_reverse_small_list(t_ilist **list_b, t_ilist **list_a);
 void				split_list_b(t_ilist **list_b, t_ilist **list_a);
 void				split_list_a(t_ilist **list_a, t_ilist **list_b);
 
-//sort_big_list.c
+// sort_big_list.c
 void				sort_size_100(t_ilist **list_a, t_ilist **list_b);
 void				sort_size_500(t_ilist **list_a, t_ilist **list_b);
 
