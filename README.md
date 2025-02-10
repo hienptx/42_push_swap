@@ -36,8 +36,11 @@ Push_swap uses different sorting strategies depending on the size of the list:
   </a>
 </p>
 
-## :floppy_disk: Installation & Usage 
-![Sorting process](assets/push_swap_sorting.png)
+## :floppy_disk: Installation & Usage
+```bash
+git clone https://github.com/hienptx/42_push_swap.git push_swap
+cd push_swap
+```
 
 ### :wrench: Compilation
 ```bash
