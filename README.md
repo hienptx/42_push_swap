@@ -28,8 +28,13 @@ Push_swap uses different sorting strategies depending on the size of the list:
 2. **Sorting Small Chunks**: Sorting is performed within the small groups.
 3. **Reassembling the Stack**: The elements are pushed back into Stack A in order.
 
-## :art: Illustration 
-![Sorting process](assets/push_swap_sorting.png)
+## :art: Illustration
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=K0LpDF8qIB">
+    <img src="https://img.youtube.com/vi/K0LpDF8qIBw/0.jpg" alt="Watch the video\n" />
+  </a>
+</p>
 
 ## :floppy_disk: Installation & Usage 
 ![Sorting process](assets/push_swap_sorting.png)
@@ -44,7 +49,7 @@ make
 ```
 Example:
 ```bash
-./push_swap "3 2 1 5 4"
+./push_swap 3 2 1 5 4
 ```
 
 ## :rocket: Performance Optimization
