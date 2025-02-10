@@ -31,7 +31,7 @@ Push_swap uses different sorting strategies depending on the size of the list:
 ## :art: Illustration
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=K0LpDF8qIB">
+  <a href="https://www.youtube.com/watch?v=K0LpDF8qIBw">
     <img src="https://img.youtube.com/vi/K0LpDF8qIBw/0.jpg" alt="Watch the video\n" />
   </a>
 </p>
